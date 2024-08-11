@@ -26,13 +26,30 @@ print("Hello, Roblox World!")
         function runScript() {
             // Get the script from the textarea
             var scriptContent = document.getElementById('scriptInput').value;
-            
-            // Here, we would typically send the script to the server to execute it
-            // But for demonstration, we will just display the script content
-            
+
+            // Display the script content for debugging purposes
             document.getElementById('output').innerText = "Executing Script:\n" + scriptContent;
-            
-            // In a real application, you would send the script to your Roblox game here.
+
+            // Replace with your actual server endpoint
+            var serverEndpoint = "https://your-server-endpoint.example.com/execute";
+
+            // Send the script content to the server
+            fetch(serverEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ script: scriptContent })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                document.getElementById('output').innerText += "\nScript Execution Result:\n" + data.result;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById('output').innerText += "\nError: " + error.message;
+            });
         }
     </script>
 </body>
