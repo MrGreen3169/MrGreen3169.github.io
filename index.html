@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Script Executor</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Roblox Script Executor</h1>
+        <p>Enter your Lua script below and click "Run Script":</p>
+        
+        <textarea id="scriptInput" rows="10" cols="50">
+-- Enter your Lua script here
+print("Hello, Roblox World!")
+        </textarea>
+        <br><br>
+        
+        <button onclick="runScript()">Run Script</button>
+        
+        <p id="output"></p>
+    </div>
+    
+    <script>
+        function runScript() {
+            // Get the script from the textarea
+            var scriptContent = document.getElementById('scriptInput').value;
+            
+            // Here, we would typically send the script to the server to execute it
+            // But for demonstration, we will just display the script content
+            
+            document.getElementById('output').innerText = "Executing Script:\n" + scriptContent;
+            
+            // In a real application, you would send the script to your Roblox game here.
+        }
+    </script>
+</body>
+</html>
