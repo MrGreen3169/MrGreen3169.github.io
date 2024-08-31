@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Chat Bypasser - Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+        }
+        .container {
+            background-color: #121212;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #ffffff; /* Adjusted to white for better contrast */
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: calc(100% - 22px);
+            height: 250px;
+            padding: 10px;
+            border: 1px solid #e76800;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            background-color: #121212; /* Darker background for textarea */
+            color: #e76800; /* White text color */
+        }
+        button {
+            background-color: #121212;
+            color: #e76800;
+            border: 2px solid #e76800; /* Added outline */
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ffffff;
+        }
+        .first-image {
+            width: 450px; /* Set the width for the first image */
+            height: 150px;
+            margin-bottom: 20px; /* Space between images */
+        }
+        .second-image {
+            width: 450px; /* Set the width for the second image independently */
+            height: auto; /* Maintain the height automatically */
+            margin-bottom: 20px; /* Space below the second image */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="image.png" alt="Logo">
+        <img class="image2.png" src="image2.png" alt="Additional Image"> <!-- Second image with adjusted width -->
+        <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        <button onclick="convertAndCopy()">Bypass</button>
+    </div>
+    <script>
+    const styleMap = {
+        'a': '🅰', 'b': '🅱', 'c': '🅲', 'd': '🅳', 'e': '🅴', 'f': '🅵', 'g': '🅶', 'h': '🅷', 'i': '🅸', 'j': '🅹', 'k': '🅺',
+        'l': '🅻', 'm': '🅼', 'n': '🅽', 'o': '🅾', 'p': '🅿', 'q': '🆀', 'r': '🆁', 's': '🆂', 't': '🆃', 'u': '🆄', 'v': '🆅',
+        'w': '🆆', 'x': '🆇', 'y': '🆈', 'z': '🆉',
+        '1': '①', '2': '②', '3': '③', '4': '④', '5': '⑤', '6': '⑥', '7': '⑦', '8': '⑧', '9': '⑨', '0': '⓪'
+    };
+
+    function convertAndCopy() {
+        const input = document.getElementById('inputText').value;
+        let convertedText = '';
+        for (let char of input) {
+            convertedText += styleMap[char.toLowerCase()] || char;
+        }
+
+        // Copy to clipboard
+        navigator.clipboard.writeText(convertedText).then(() => {
+            alert('Copied! Paste into ROBLOX.');
+        }, (err) => {
+            alert('Failed to copy text: ' + err);
+        });
+    }
+    </script>
+</body>
+</html>
